@@ -13,7 +13,7 @@ test('renders learn react link', () => {
 test('handleStrike', () => {
   let actual;
   let expected;
-  actual = handleStrike(1);
+  actual = handleStrike(1);11
   expected = 5;
   expect(actual).toBe(expected);
   expect(actual).not.toBe(13);

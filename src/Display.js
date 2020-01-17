@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import addPoint from "./Utils/funct"
+import styles from "./styles/style.css"
 
 
 
@@ -9,13 +10,17 @@ const [strike,setStrike]=useState(0)
 const [balls,setBalls]=useState(0)
  const [fouls,setFouls]=useState(0)
 
+ const Reset =()=>{
+    setStrike(0)
+    setBalls(0)
+    setFouls(0)
+ }
  const handleStrike =() =>{
     if(strike < 2) {
     setStrike(strike +1)
     }else{
         alert("Youre OUT!")
-        setStrike(0)
-        setBalls(0)
+        Reset();
     }
     
 }
@@ -24,8 +29,7 @@ const [balls,setBalls]=useState(0)
         setBalls(balls +1)
         }else{
             alert("Youre OUT!")
-            setBalls(0)
-            setStrike(0)
+           Reset();
         }
 
 }
@@ -35,12 +39,7 @@ if(strike < 2){ setStrike(strike  +1)}
 
 }
 
- const handleHit = () => {
-setStrike(0)
-setBalls(0)
-setFouls(0)
-    
-}
+
 
 
 return(
@@ -48,10 +47,10 @@ return(
 <h1> Strikes: {strike}</h1>
 <h1> Balls: {balls}</h1>
 <h1> Fouls: {fouls}</h1>
-<buttom onClick ={handleStrike}>Add Strike</buttom>
-<buttom onClick ={handleBalls}>Add Ball</buttom>
-<buttom onClick ={handleFouls}>Foul</buttom>
-<buttom onClick ={handleHit}>Hit</buttom>
+<button className="btn" onClick ={handleStrike}>Add Strike</button>
+<button className="btn"onClick ={handleBalls}>Add Ball</button>
+<button className="btn"onClick ={handleFouls}>Foul</button>
+<button className="btn"onClick ={Reset}>Hit</button>
 </div>
 )
 
